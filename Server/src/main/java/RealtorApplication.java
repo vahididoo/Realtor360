@@ -1,5 +1,6 @@
 package com.appurate.realtor;
 
+
 import org.springframework.boot.SpringApplication;
 
 /**

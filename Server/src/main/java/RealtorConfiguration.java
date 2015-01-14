@@ -7,7 +7,7 @@ import java.lang.annotation.Annotation;
 /**
  * Created by vmansoori on 1/2/2015.
  */
-public class RealtorConfiguration extends Configuration {
+public class RealtorConfiguration implements Configuration {
     @Override
     public String value() {
         return null;
