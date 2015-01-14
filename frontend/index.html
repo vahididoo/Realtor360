@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/hammerjs/hammer.js"></script>
+
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+    <link rel="stylesheet" href="bower_components/angular-material/themes/indigo-theme.css"/>
+
+</head>
+<body layout="row">
+<md-sidenav layout="column"
+            style="overflow: hidden; display: flex;"
+            class="site-sidenav md-sidenav-left md-whiteframe-z2"
+            md-component-id="left"
+            md-is-locked-open="$media('gt-sm')">
+      <md-content class="md-padding">
+        <md-list>
+            <md-item>
+                <md-item-content>
+                   <div class="md-tile-content"><h3>Item 1</h3>
+                    </div>
+                </md-item-content>
+            </md-item>
+            <md-item>
+                <md-item-content>
+                    <div class="md-tile-content"><h3>Item 1</h3></div>
+                </md-item-content>
+            </md-item>
+            <md-item>
+                <md-item-content>
+                    <div class="md-tile-content"><h3>Item 1</h3></div>
+                </md-item-content>
+            </md-item>
+        </md-list>
+    </md-content>
+</md-sidenav>
+<md-content flex class="md-padding">
+    <div layout="column" layout-fill layout-align="center center">
+        <md-toolbar><h2 class="md-toolbar-tools">This is a toolbar</h2> </md-toolbar>
+        <p>
+            The left sidenav will 'lock open' on a medium (>=960px wide) device.
+        </p>
+
+        <div>
+            <md-button ng-click="toggleLeft()" class="md-primary" hide-gt-md>
+                Toggle left
+            </md-button>
+        </div>
+        <div>
+            <md-button ng-click="" class="md-primary">
+                Toggle right
+            </md-button>
+        </div>
+    </div>
+</md-content>
+</body>
+</html>
