@@ -6,7 +6,7 @@ var myApp = angular.module('realtor')
 myApp.config(function ($stateProvider) {
     $stateProvider
         .state('admin', {
-            url: 'admin',
-            templateUrl: './admin.tmpl.html'
+            url: '/admin',
+            template: '<div ui-view></div>'
         })
 })

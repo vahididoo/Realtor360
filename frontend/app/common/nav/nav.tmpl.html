@@ -1,1 +1,14 @@
-<div class="navbar navbar-default navbar-static-side" role="navigation"><h2>This is the navbar</h2></div>
+<div layout="column" md-theme="dark" ng-controller="NavController as navCtrl">
+
+    <div ng-repeat-start="menuItem in navCtrl.menuList" layout-padding>
+        <div ng-click="navCtrl.selectItem(menuItem)">
+            <span ng-bind="menuItem.name"/>
+        </div>
+    </div>
+    <div ng-repeat="childItem in menuItem.childItems" ng-show="menuItem.selected" layout-padding>
+        <div>
+            <span ng-bind="childItem.name" ng-click="navCtrl.goTo(childItem)"/>
+        </div>
+    </div>
+    <md-divider ng-repeat-end ng-hide="$last"></md-divider>
+</div>

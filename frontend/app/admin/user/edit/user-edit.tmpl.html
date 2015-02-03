@@ -1,0 +1,22 @@
+<md-dialog layout-padding>
+    <div class="md-header fa fa-edit fa-2x">{{user.firstName+' '+user.lastName}}</div>
+    <section class="md-padding" layout="row">
+        <md-input-container>
+
+            <label>First Name</label>
+            <input required ng-model="user.firstName" ng-disabled="true">
+
+        </md-input-container>
+        <md-input-container>
+
+            <label>Last Name</label>
+            <input required ng-model="user.lastName">
+
+        </md-input-container>
+
+    </section>
+    <div class="md-actions" layout="row">
+        <md-button md-no-ink ng-click="cancel()">Cancel</md-button>
+        <md-button ng-click="OK(user)">OK</md-button>
+    </div>
+</md-dialog>

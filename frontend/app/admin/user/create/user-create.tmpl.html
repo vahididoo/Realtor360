@@ -1,0 +1,33 @@
+<md-dialog layout-margin layout-padding class="transition-in">
+    <div class="md-header md-accent md-sticky-no-effect "><h2>Add User</h2></div>
+    <div layout="row">
+        <section class="md-padding" layout="column" flex="50">
+            <md-input-container>
+
+                <label>First Name</label>
+                <input required ng-model="user.firstName">
+
+            </md-input-container>
+            <md-input-container>
+                <label>Last Name</label>
+                <input required ng-model="user.lastName">
+            </md-input-container>
+
+            <md-input-container>
+                <!--TODO Fix the dropzone-->
+                <label>Date of Birth</label>
+                <input required ng-model="user.DOB">
+                <!--<input required ng-model="user.DOB" ng-pattern="(19|20)[0-9]{2}[-. \/]?[01][012][-. \/][012]?[1-9]">-->
+
+            </md-input-container>
+        </section>
+        <section flex="50">
+
+            <div class="dropzone" drop-zone="" id="file-dropzone"></div>
+        </section>
+    </div>
+    <div class="md-actions" layout="row">
+        <md-button md-no-ink ng-click="cancel()">Cancel</md-button>
+        <md-button ng-click="OK(user)">OK</md-button>
+    </div>
+</md-dialog>

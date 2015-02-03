@@ -3,7 +3,7 @@
  */
 var myApp = angular.module('realtor')
 
-realtor.config(function ($stateProvider) {
+myApp.config(function ($stateProvider) {
     $stateProvider
         .state('common', {
             abstract: true,

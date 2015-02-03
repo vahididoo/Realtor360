@@ -1,0 +1,38 @@
+<div layout="column" layout-margin layout-padding layout-align="center center"
+     ng-controller="UserViewController as controller" md-backdrop flex >
+
+    <div style="width: 50%;">
+        <md-card class="md-whiteframe-z1 md-accent" ng-repeat="name in 'abcdefghijklmnopqrstuvwxyz'.split('')"
+                 ng-show="(controller.users | filter: {lastName : name}).length">
+            <md-toolbar class="md-primary" layout-padding layout-align="center start">{{name}}</md-toolbar>
+            <md-list>
+                <md-item ng-repeat="user in controller.users | filter: {lastName : name}">
+                    <md-item-content>
+                        <div flex="10">
+                            <a ui-sref="admin.profile(user)"></a><img ng-src="resources/img/{{user.image}}" alt="" class="face"/>
+                        </div>
+                        <div class="md-item-content" flex="80">
+                            <h1 ng-bind="user.firstName" style="font-size: small"></h1>
+
+                            <h2 ng-bind="user.lastName" style="font-size: medium"></h2>
+
+                            <h1 ng-bind="user.DOB" class="date " style="font-size: smaller"></h1>
+                        </div>
+
+                        <div layout="row">
+                            <button class="md-button fa fa-edit fa-2x" ng-click="controller.editUser(user)"></button>
+                            <button class="md-button fa fa-remove fa-2x"
+                                    ng-click="console.log('Button clicked')"></button>
+                        </div>
+                    </md-item-content>
+                    <md-divider ng-hide="$last"></md-divider>
+                </md-item>
+            </md-list>
+        </md-card>
+    </div>
+    <div style="padding-bottom: 20px">
+        <md-button class="md-fab md-fab-bottom-right fa fa-plus md-accent md-hue-2" md-theme="dark"
+                   style="align-content: center;width: 56px;height: 56px; position: fixed; bottom: 3rem; right: 3rem"
+                   ng-click="controller.addUser()"></md-button>
+    </div>
+</div>
