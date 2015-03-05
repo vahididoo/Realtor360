@@ -11,7 +11,7 @@ var myApp = angular.module('realtor')
     })
 
 
-myApp.controller('UserViewController', function (UsersModel, $log, $mdDialog) {
+myApp.controller('UserViewController', function (UsersModel, $log) {
 
     $log.info(UsersModel.getUsers());
 
@@ -19,6 +19,7 @@ myApp.controller('UserViewController', function (UsersModel, $log, $mdDialog) {
 
     this.editUser = function (user) {
         //console.log(user.firstName)
+/*
         $mdDialog.show({
                 controller: DialogController,
                 templateUrl: 'app/admin/user/edit/user-edit.tmpl.html',
@@ -32,11 +33,12 @@ myApp.controller('UserViewController', function (UsersModel, $log, $mdDialog) {
         ).then(function (user) {
                 UsersModel.updateUser(user)
             })
+*/
     };
 
     this.addUser = function () {
         //console.log(user.firstName)
-        $mdDialog.show({
+        /*$mdDialog.show({
                 controller: DialogController,
                 templateUrl: 'app/admin/user/create/user-create.tmpl.html',
                 controllerAs: 'controller',
@@ -49,7 +51,7 @@ myApp.controller('UserViewController', function (UsersModel, $log, $mdDialog) {
         ).
             then(function (user) {
                 UsersModel.addUser(user)
-            })
+            })*/
     }
 })
 

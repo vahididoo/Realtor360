@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+    <title></title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
+    <!--<script src="bower_components/dropzone/downloads/"></script>-->
+
+
+    <script src="app/app.js"></script>
+    <script src="common/services/user-service.js"></script>
+    <script src="app/common/common.js"></script>
+    <script src="app/common/nav/nav.js"></script>
+    <script src="app/admin/admin.js"></script>
+    <script src="app/admin/profile/profile.js"></script>
+    <script src="app/admin/user/user.js"></script>
+    <script src="app/admin/user/view/user-view.js"></script>
+    <script src="app/admin/user/edit/user-edit.js"></script>
+
+    <link href="resources/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+
+    <style>
+        .face {
+            border-radius: 30px;
+            border: 1px solid #ddd;
+            width: 48px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body  ng-app="realtor" ng-controller="AppController as mainController">
+
+
+<md-sidenav layout="column" style="overflow: hidden; display: flex;"
+            class="site-sidenav md-sidenav-left md-whiteframe-z2 md-closed ng-isolate-scope md-locked-open md-raised "
+            md-component-id="left" md-is-locked-open="$media('gt-sm')" tabindex="-1">
+    <md-toolbar class="md-tall md-primary md-hue-2">
+        <h2 class="md-toolbar-tools"></h2>
+        <!--<h2 class="md-toolbar-tools">{{$state.$current.name}}</h2>-->
+    </md-toolbar>
+    <section class="md-padding md-primary md-hue-1">
+        <!--<div ui-view="sidenav"></div>-->
+        <div ng-include src="'app/common/nav/nav.tmpl.html'"></div>
+    </section>
+</md-sidenav>
+
+<section class="md-whiteframe-z1 md-primary" layout="column" layout-fill layout="center center" md-theme="dark">
+
+    <md-toolbar class="md-primary md-whiteframe-z1">
+        <div class="md-toolbar-tools" layout-align="end center">
+        <span class="fa-stack fa-lg">
+          <span class="fa fa-circle fa-stack-2x md-icon" style="color: #607D8B"></span>
+          <i class="fa fa-gear fa-stack-1x"></i>
+        </span>
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-circle fa-stack-2x " style="color: #607D8B"></i>
+          <i class="fa fa-bell fa-stack-1x"></i>
+        </span>
+        <span>
+            <a ui-sref="admin.profile"><img class="face" src="resources/img/a4.jpg"/></a>
+        </span>
+        </div>
+    </md-toolbar>
+
+
+    <md-content md-themable="true" class="md-padding ng-scope md-primary md-hue-3" layout-fill role="main">
+        <div ui-view></div>
+    </md-content>
+
+</section>
+
+</body>
+</html>

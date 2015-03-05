@@ -17,7 +17,7 @@
 
 AngularUI Router is a routing framework for [AngularJS](http://angularjs.org), which allows you to organize the
 parts of your interface into a [*state machine*](https://en.wikipedia.org/wiki/Finite-state_machine). Unlike the
-[`$route` service](http://docs.angularjs.org/api/ngRoute.$route) in the Angular ngRoute module, which is organized around URL
+[`$route` com.appurate.realtor.service](http://docs.angularjs.org/api/ngRoute.$route) in the Angular ngRoute module, which is organized around URL
 routes, UI-Router is organized around [*states*](https://github.com/angular-ui/ui-router/wiki),
 which may optionally have routes, as well as other behavior, attached.
 
@@ -140,7 +140,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
     .state('state1.list', {
       url: "/list",
       templateUrl: "partials/state1.list.html",
-      controller: function($scope) {
+      com.appurate.realtor.controller: function($scope) {
         $scope.items = ["A", "List", "Of", "Items"];
       }
     })
@@ -151,7 +151,7 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
     .state('state2.list', {
       url: "/list",
       templateUrl: "partials/state2.list.html",
-      controller: function($scope) {
+      com.appurate.realtor.controller: function($scope) {
         $scope.things = ["A", "Set", "Of", "Things"];
       }
     });

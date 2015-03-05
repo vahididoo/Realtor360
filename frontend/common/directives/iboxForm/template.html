@@ -1,0 +1,107 @@
+<div class="ibox float-e-margins " ng-controller="IboxFormController as controller">
+    <div class="ibox-title border-bottom">
+        <h5><strong>{{controller.title}}</strong></h5>
+
+        <div class="ibox-tools">
+            <a class="fa fa-check" style="background: none"
+               ng-click="submit({{}})" ng-show="!pController.readonly" tooltip="Edit" tooltip-trigger="mouseenter"></a>
+            <a class="fa fa-edit" style="background: none" ng-click="pController.makeContentEditable()" ng-hide="!pController.readonly"></a>
+        </div>
+    </div>
+    <div class="ibox-content profile-content">
+
+        <div class="row m-b-md">
+            <div class="input-group col-md-12">
+                <div class="col-md-4"><span>First Name</span></div>
+                <div class="col-md-8">
+                    <input type="text " class="form-control col-md-8 font-bold" ng-model="mainController.contact.firstName"
+                           ng-class="pController.readonlyClass" ng-readonly="pController.readonly"/>
+                </div>
+            </div>
+        </div>
+        <div class="row m-b-md">
+            <div class="input-group col-md-12">
+                <div class="col-md-4"><span>Last Name</span></div>
+                <div class="col-md-8">
+                    <input type="text " class="form-control col-md-8 font-bold" ng-model="mainController.contact.lastName"
+                           ng-class="pController.readonlyClass" ng-readonly="pController.readonly"/>
+                </div>
+            </div>
+        </div>
+        <div class="row m-b-md">
+            <div class="input-group col-md-12">
+                <div class="col-md-4"><span> Date of Birth</span></div>
+                <div class="col-md-8">
+                    <input type="date" class="form-control col-md-8 font-bold" ng-model="mainController.contact.DOB"
+                           ng-class="pController.readonlyClass" ng-readonly="pController.readonly"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row m-b-md">
+            <div class="input-group col-md-12">
+                <div class="col-md-4"><span> Home Phone</span></div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control col-md-8 font-bold" ng-model="mainController.contactPhone.home"
+                           ng-class="pController.readonlyClass" ng-readonly="pController.readonly" ui-mask="(999) 999-9999"/>
+                </div>
+            </div>
+        </div>
+        <div class="row m-b-md">
+            <div class="input-group col-md-12">
+                <div class="col-md-4"><span>Cell Phone</span></div>
+                <div class="col-md-8">
+                    <input type="text" class="form-control col-md-8 font-bold" ng-model="mainController.contactPhone.cell"
+                           ng-class="pController.readonlyClass" ng-readonly="pController.readonly" ui-mask="(999) 999-9999"/>
+                </div>
+            </div>
+        </div>
+        <div class="row m-t-lg">
+            <div class="col-md-12">
+                <i class="fa fa-map-marker"></i> Address
+                <div class="row m-t-sm">
+                    <!--<div class="row m-b-md">-->
+                    <div class="input-group col-md-12">
+                        <div class="col-md-3 col-md-offset-1"><span>Street Number</span></div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control col-md-8 font-bold"
+                                   ng-model="mainController.contact.address.streetNumber"
+                                   ng-class="pController.readonlyClass" ng-readonly="pController.readonly"/>
+                        </div>
+                    </div>
+                    <!--</div>-->
+                    <!--<div class="row m-b-md">-->
+                    <div class="input-group col-md-12">
+                        <div class="col-md-3 col-md-offset-1"><span>Street Name</span></div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control col-md-8 font-bold"
+                                   ng-model="mainController.contact.address.street"
+                                   ng-class="pController.readonlyClass" ng-readonly="pController.readonly"/>
+                        </div>
+                    </div>
+                    <!--</div>-->
+                    <!--<div class="row m-b-md">-->
+                    <div class="input-group col-md-12">
+                        <div class="col-md-3 col-md-offset-1"><span>Postal Code</span></div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control col-md-8 font-bold"
+                                   ng-model="mainController.contact.address.city"
+                                   ng-class="pController.readonlyClass" ng-readonly="pController.readonly"/>
+                        </div>
+                    </div>
+                    <!--</div>-->
+                    <!--<div class="row m-b-md">-->
+                    <div class="input-group col-md-12">
+                        <div class="col-md-3 col-md-offset-1"><span>City</span></div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control col-md-8 font-bold"
+                                   ng-model="mainController.contact.address.postalCode"
+                                   ng-class="pController.readonlyClass" ng-readonly="pController.readonly" ui-mask="A9A 9A9"/>
+                        </div>
+                    </div>
+                    <!--</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

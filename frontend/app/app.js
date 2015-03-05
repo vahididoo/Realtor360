@@ -1,14 +1,10 @@
 /**
  * Created by vmansoori on 1/13/2015.
  */
-var myApp = angular.module('realtor', ['ui.router', 'ngMaterial', 'common.user.service'])
-    .config(function ($urlRouterProvider, $stateProvider, $mdThemingProvider) {
-        $mdThemingProvider.theme('dark')
-            .primaryColor('grey')
-            .accentColor('blue-grey')
-            .warnColor('orange');
+var myApp = angular.module('realtor', ['ui.router', 'ui.bootstrap', 'common.user.service','ui.mask'])
+    .config(function ($urlRouterProvider, $stateProvider) {
 
-        $mdThemingProvider.setDefaultTheme('dark');
+
         $urlRouterProvider.otherwise('/');
         $stateProvider
             .state('index', {

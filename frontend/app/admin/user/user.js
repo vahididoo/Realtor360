@@ -5,7 +5,7 @@ angular.module('realtor')
     .config(function ($stateProvider) {
         $stateProvider
             .state('admin.user', {
-                abstract: true,
+                //abstract: true,
                 url: '/user',
                 templateUrl: 'app/admin/user/user.tmpl.html'
             });

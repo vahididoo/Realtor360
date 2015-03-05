@@ -19,7 +19,7 @@
  *
  * @param {string=} autoscroll It allows you to set the scroll behavior of the browser window
  * when a view is populated. By default, $anchorScroll is overridden by ui-router's custom scroll
- * service, {@link ui.router.state.$uiViewScroll}. This custom service let's you
+ * com.appurate.realtor.service, {@link ui.router.state.$uiViewScroll}. This custom com.appurate.realtor.service let's you
  * scroll ui-view elements into view when they are populated during a state activation.
  *
  * *Note: To revert back to old [`$anchorScroll`](http://docs.angularjs.org/api/ng.$anchorScroll)

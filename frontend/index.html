@@ -1,39 +1,25 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
-    <title></title>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
-    <script src="bower_components/angular-material/angular-material.min.js"></script>
-    <script src="bower_components/hammerjs/hammer.js"></script>
-    <script src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
-    <!--<script src="bower_components/dropzone/downloads/"></script>-->
+<html ng-app="realtor">
 
+<head>
 
-    <script src="app/app.js"></script>
-    <script src="common/services/user-service.js"></script>
-    <script src="app/common/common.js"></script>
-    <script src="app/common/nav/nav.js"></script>
-    <script src="app/admin/admin.js"></script>
-    <script src="app/admin/profile/profile.js"></script>
-    <script src="app/admin/user/user.js"></script>
-    <script src="app/admin/user/view/user-view.js"></script>
-    <script src="app/admin/user/edit/user-edit.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Page title set in pageTitle directive -->
+    <title page-title></title>
 
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
+    <!-- Bootstrap and Fonts -->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <!--<link href="bower_components/bootstrap/dist/css/bootstrap.css.map" rel="stylesheet">-->
+    <link href="bower_components/Font-Awesome/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.min.css">
 
+    <!-- Main Inspinia CSS files -->
+    <link href="resources/css/animate.css" rel="stylesheet">
+    <link href="resources/css/inspinia-style.css" rel="stylesheet">
+    <link href="resources/css/style.css" rel="stylesheet">
 
-    <link href="resources/font-awesome/css/font-awesome.css" rel="stylesheet">
-
-    <!-- Dropzone style -->
-    <!--
-        <link href="resources/css/plugins/dropzone/basic.css" rel="stylesheet">
-        <link href="resources/css/plugins/dropzone/dropzone.css" rel="stylesheet">
-    -->
 
     <style>
         .face {
@@ -43,47 +29,85 @@
             margin: 10px;
         }
     </style>
+
 </head>
-<body layout="row" ng-app="realtor" ng-controller="AppController as mainController">
+
+<!-- ControllerAs syntax -->
+<!-- Main controller with serveral data used in Inspinia theme on diferent view -->
+<body ng-controller="AppController as main">
+
+<!-- Wrapper-->
+<div id="wrapper">
 
 
-<md-sidenav layout="column" style="overflow: hidden; display: flex;"
-            class="site-sidenav md-sidenav-left md-whiteframe-z2 md-closed ng-isolate-scope md-locked-open md-raised "
-            md-component-id="left" md-is-locked-open="$media('gt-sm')" tabindex="-1">
-    <md-toolbar class="md-tall md-primary md-hue-2">
-        <h2 class="md-toolbar-tools"></h2>
-        <!--<h2 class="md-toolbar-tools">{{$state.$current.name}}</h2>-->
-    </md-toolbar>
-    <section class="md-padding md-primary md-hue-1">
-        <!--<div ui-view="sidenav"></div>-->
-        <div ng-include src="'app/common/nav/nav.tmpl.html'"></div>
-    </section>
-</md-sidenav>
+    <!-- Navigation -->
+    <div ng-include="'app/common/nav/navigation.html'"></div>
 
-<section class="md-whiteframe-z1 md-primary" layout="column" layout-fill layout="center center" md-theme="dark">
+    <!-- Page wraper -->
+    <!-- ng-class with current state name give you the ability to extended customization your view -->
+    <div id="page-wrapper" class="gray-bg {{$state.current.name}}">
 
-    <md-toolbar class="md-primary md-whiteframe-z1">
-        <div class="md-toolbar-tools" layout-align="end center">
-        <span class="fa-stack fa-lg">
-          <span class="fa fa-circle fa-stack-2x md-icon" style="color: #607D8B"></span>
-          <i class="fa fa-gear fa-stack-1x"></i>
-        </span>
-        <span class="fa-stack fa-lg">
-          <i class="fa fa-circle fa-stack-2x " style="color: #607D8B"></i>
-          <i class="fa fa-bell fa-stack-1x"></i>
-        </span>
-        <span>
-            <a ui-sref="admin.profile"><img class="face" src="resources/img/a4.jpg"/></a>
-        </span>
-        </div>
-    </md-toolbar>
+        <!-- Page wrapper -->
+        <div ng-include="'app/common/topnavbar/topnavbar.html'"></div>
 
-
-    <md-content md-themable="true" class="md-padding ng-scope md-primary md-hue-3" layout-fill role="main">
+        <!-- Main view  -->
         <div ui-view></div>
-    </md-content>
 
-</section>
+        <!-- Footer -->
+        <div ng-include="'app/common/footer/footer.html'"></div>
+
+    </div>
+    <!-- End page wrapper-->
+
+</div>
+<!-- End wrapper-->
+
+
+<!-- jQuery and Bootstrap -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- MetsiMenu -->
+<script src="bower_components/metisMenu/dist/metisMenu.js"></script>
+
+<!-- Peace JS -->
+<script src="plugins/pace/pace.min.js"></script>
+
+<!-- SlimScroll -->
+<script src="bower_components/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Angular scripts-->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/angular-ui-utils/ui-utils.min.js"></script>
+
+
+
+
+
+
+
+
+
+<!-- Angular Dependiences -->
+
+<!-- Anglar App Script -->
+<script src="app/app.js"></script>
+<script src="common/services/user-service.js"></script>
+<script src="common/filters/phone.js"></script>
+<script src="app/common/common.js"></script>
+<script src="app/common/nav/nav.js"></script>
+<script src="app/admin/admin.js"></script>
+<script src="app/admin/profile/profile.js"></script>
+<script src="app/admin/user/user.js"></script>
+<script src="app/admin/user/view/user-view.js"></script>
+<script src="app/admin/user/edit/user-edit.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="app/inspinia.js"></script>
+<script src="app/directives.js"></script>
 
 </body>
 </html>

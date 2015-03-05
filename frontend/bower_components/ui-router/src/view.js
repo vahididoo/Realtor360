@@ -16,7 +16,7 @@ function $ViewProvider() {
   $get.$inject = ['$rootScope', '$templateFactory'];
   function $get(   $rootScope,   $templateFactory) {
     return {
-      // $view.load('full.viewName', { template: ..., controller: ..., resolve: ..., async: false, params: ... })
+      // $view.load('full.viewName', { template: ..., com.appurate.realtor.controller: ..., resolve: ..., async: false, params: ... })
       /**
        * @ngdoc function
        * @name ui.router.state.$view#load
@@ -47,7 +47,7 @@ function $ViewProvider() {
          * Fired once the view **begins loading**, *before* the DOM is rendered.
          *
          * @param {Object} event Event object.
-         * @param {Object} viewConfig The view config properties (template, controller, etc).
+         * @param {Object} viewConfig The view config properties (template, com.appurate.realtor.controller, etc).
          *
          * @example
          *

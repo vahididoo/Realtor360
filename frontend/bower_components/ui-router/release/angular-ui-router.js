@@ -537,7 +537,7 @@ function $Resolve(  $q,    $injector) {
    * This is true even for dependencies inherited from a `parent` call to `$resolve`.
    *
    * As a special case, an invocable can be a string, in which case it is taken to 
-   * be a service name to be passed to `$injector.get()`. This is supported primarily 
+   * be a com.appurate.realtor.service name to be passed to `$injector.get()`. This is supported primarily
    * for backwards-compatibility with the `resolve` property of `$routeProvider` 
    * routes.
    *
@@ -1451,7 +1451,7 @@ function $UrlMatcherFactory() {
    *
    * $stateProvider.state('list', {
    *   url: "/list/{item:listItem}",
-   *   controller: function($scope, $stateParams) {
+   *   com.appurate.realtor.controller: function($scope, $stateParams) {
    *     console.log($stateParams.item);
    *   }
    * });
@@ -1467,8 +1467,8 @@ function $UrlMatcherFactory() {
    * handle encoding and decoding parameter values:
    *
    * <pre>
-   * // Defines a custom type that gets a value from a service,
-   * // where each service gets different types of values from
+   * // Defines a custom type that gets a value from a com.appurate.realtor.service,
+   * // where each com.appurate.realtor.service gets different types of values from
    * // a backend API:
    * $urlMatcherFactoryProvider.type('dbObject', {}, function(Users, Posts) {
    *
@@ -1485,7 +1485,7 @@ function $UrlMatcherFactory() {
    *     },
    *     decode: function(value, key) {
    *       // Look up the object by ID, using the parameter
-   *       // name (key) to call the correct service
+   *       // name (key) to call the correct com.appurate.realtor.service
    *       return services[key].findById(value);
    *     },
    *     is: function(object, key) {
@@ -1507,9 +1507,9 @@ function $UrlMatcherFactory() {
    *   // ...
    * }).state('users.item', {
    *   url: "/{user:dbObject}",
-   *   controller: function($scope, $stateParams) {
+   *   com.appurate.realtor.controller: function($scope, $stateParams) {
    *     // $stateParams.user will now be an object returned from
-   *     // the Users service
+   *     // the Users com.appurate.realtor.service
    *   },
    *   // ...
    * });
@@ -1930,7 +1930,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
    * }).run(function ($rootScope, $urlRouter, UserService) {
    *
    *   $rootScope.$on('$locationChangeSuccess', function(e) {
-   *     // UserService is an example service for managing user state
+   *     // UserService is an example com.appurate.realtor.service for managing user state
    *     if (UserService.isLoggedIn()) return;
    *
    *     // Prevent $urlRouter's default handler from firing
@@ -2131,7 +2131,7 @@ angular.module('ui.router.router').provider('$urlRouter', $UrlRouterProvider);
  * on state.
  *
  * A state corresponds to a "place" in the application in terms of the overall UI and
- * navigation. A state describes (via the controller / template / view properties) what
+ * navigation. A state describes (via the com.appurate.realtor.controller / template / view properties) what
  * the UI looks like and does at that place.
  *
  * States often have things in common, and the primary way of factoring out these
@@ -2413,10 +2413,10 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *   be a super-set of parent's params.
    * - **views** `{object}` - returns a views object where each key is an absolute view 
    *   name (i.e. "viewName@stateName") and each value is the config object 
-   *   (template, controller) for the view. Even when you don't use the views object 
+   *   (template, com.appurate.realtor.controller) for the view. Even when you don't use the views object
    *   explicitly on a state config, one is still created for you internally.
    *   So by decorating this builder function you have access to decorating template 
-   *   and controller properties.
+   *   and com.appurate.realtor.controller properties.
    * - **ownParams** `{object}` - returns an array of params that belong to the state, 
    *   not including any params defined by ancestor states.
    * - **path** `{string}` - returns the full path from the root down to this state. 
@@ -2442,8 +2442,8 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *
    * $stateProvider.state('home', {
    *   views: {
-   *     'contact.list': { controller: 'ListController' },
-   *     'contact.item': { controller: 'ItemController' }
+   *     'contact.list': { com.appurate.realtor.controller: 'ListController' },
+   *     'contact.item': { com.appurate.realtor.controller: 'ItemController' }
    *   }
    * });
    *
@@ -2532,22 +2532,22 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *         return MyTemplateService.getTemplate(params.pageId);
    *       }</pre>
    *
-   * @param {string|function=} stateConfig.controller
-   * <a id='controller'></a>
+   * @param {string|function=} stateConfig.com.appurate.realtor.controller
+   * <a id='com.appurate.realtor.controller'></a>
    *
    *  Controller fn that should be associated with newly
-   *   related scope or the name of a registered controller if passed as a string.
+   *   related scope or the name of a registered com.appurate.realtor.controller if passed as a string.
    *   Optionally, the ControllerAs may be declared here.
-   * <pre>controller: "MyRegisteredController"</pre>
-   * <pre>controller:
+   * <pre>com.appurate.realtor.controller: "MyRegisteredController"</pre>
+   * <pre>com.appurate.realtor.controller:
    *     "MyRegisteredController as fooCtrl"}</pre>
-   * <pre>controller: function($scope, MyService) {
+   * <pre>com.appurate.realtor.controller: function($scope, MyService) {
    *     $scope.data = MyService.getData(); }</pre>
    *
    * @param {function=} stateConfig.controllerProvider
    * <a id='controllerProvider'></a>
    *
-   * Injectable provider function that returns the actual controller or string.
+   * Injectable provider function that returns the actual com.appurate.realtor.controller or string.
    * <pre>controllerProvider:
    *   function(MyResolveData) {
    *     if (MyResolveData.foo)
@@ -2562,7 +2562,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * @param {string=} stateConfig.controllerAs
    * <a id='controllerAs'></a>
    * 
-   * A controller alias name. If present the controller will be
+   * A com.appurate.realtor.controller alias name. If present the com.appurate.realtor.controller will be
    *   published to scope under the controllerAs name.
    * <pre>controllerAs: "myCtrl"</pre>
    *
@@ -2570,18 +2570,18 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * <a id='resolve'></a>
    *
    * An optional map&lt;string, function&gt; of dependencies which
-   *   should be injected into the controller. If any of these dependencies are promises, 
-   *   the router will wait for them all to be resolved before the controller is instantiated.
+   *   should be injected into the com.appurate.realtor.controller. If any of these dependencies are promises,
+   *   the router will wait for them all to be resolved before the com.appurate.realtor.controller is instantiated.
    *   If all the promises are resolved successfully, the $stateChangeSuccess event is fired
    *   and the values of the resolved promises are injected into any controllers that reference them.
    *   If any  of the promises are rejected the $stateChangeError event is fired.
    *
    *   The map object is:
    *   
-   *   - key - {string}: name of dependency to be injected into controller
-   *   - factory - {string|function}: If string then it is alias for service. Otherwise if function, 
+   *   - key - {string}: name of dependency to be injected into com.appurate.realtor.controller
+   *   - factory - {string|function}: If string then it is alias for com.appurate.realtor.service. Otherwise if function,
    *     it is injected and return value it treated as dependency. If result is a promise, it is 
-   *     resolved before its value is injected into controller.
+   *     resolved before its value is injected into com.appurate.realtor.controller.
    *
    * <pre>resolve: {
    *     myResolve1:
@@ -2594,7 +2594,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * <a id='url'></a>
    *
    *   A url fragment with optional parameters. When a state is navigated or
-   *   transitioned to, the `$stateParams` service will be populated with any 
+   *   transitioned to, the `$stateParams` com.appurate.realtor.service will be populated with any
    *   parameters that were passed.
    *
    * examples:
@@ -2617,13 +2617,13 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * Targets three named `ui-view`s in the parent state's template
    * <pre>views: {
    *     header: {
-   *       controller: "headerCtrl",
+   *       com.appurate.realtor.controller: "headerCtrl",
    *       templateUrl: "header.html"
    *     }, body: {
-   *       controller: "bodyCtrl",
+   *       com.appurate.realtor.controller: "bodyCtrl",
    *       templateUrl: "body.html"
    *     }, footer: {
-   *       controller: "footCtrl",
+   *       com.appurate.realtor.controller: "footCtrl",
    *       templateUrl: "footer.html"
    *     }
    *   }</pre>
@@ -2631,10 +2631,10 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * Targets named `ui-view="header"` from grandparent state 'top''s template, and named `ui-view="body" from parent state's template.
    * <pre>views: {
    *     'header@top': {
-   *       controller: "msgHeaderCtrl",
+   *       com.appurate.realtor.controller: "msgHeaderCtrl",
    *       templateUrl: "msgHeader.html"
    *     }, 'body': {
-   *       controller: "messagesCtrl",
+   *       com.appurate.realtor.controller: "messagesCtrl",
    *       templateUrl: "messages.html"
    *     }
    *   }</pre>
@@ -2816,7 +2816,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * resolve or reject.
    *
    * @description
-   * `$state` service is responsible for representing states as well as transitioning
+   * `$state` com.appurate.realtor.service is responsible for representing states as well as transitioning
    * between them. It also provides interfaces to ask for current state or even states
    * you're coming from.
    */
@@ -2916,7 +2916,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * <pre>
      * var app angular.module('app', ['ui.router']);
      *
-     * app.controller('ctrl', function ($scope, $state) {
+     * app.com.appurate.realtor.controller('ctrl', function ($scope, $state) {
      *   $scope.reload = function(){
      *     $state.reload();
      *   }
@@ -2954,7 +2954,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * <pre>
      * var app = angular.module('app', ['ui.router']);
      *
-     * app.controller('ctrl', function ($scope, $state) {
+     * app.com.appurate.realtor.controller('ctrl', function ($scope, $state) {
      *   $scope.changeState = function () {
      *     $state.go('contact.detail');
      *   };
@@ -3020,7 +3020,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
      * <pre>
      * var app = angular.module('app', ['ui.router']);
      *
-     * app.controller('ctrl', function ($scope, $state) {
+     * app.com.appurate.realtor.controller('ctrl', function ($scope, $state) {
      *   $scope.changeState = function () {
      *     $state.transitionTo('contact.detail');
      *   };
@@ -3435,7 +3435,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
 
     function resolveState(state, params, paramsAreFiltered, inherited, dst, options) {
       // Make a restricted $stateParams with only the parameters that apply to this state if
-      // necessary. In addition to being available to the controller and onEnter/onExit callbacks,
+      // necessary. In addition to being available to the com.appurate.realtor.controller and onEnter/onExit callbacks,
       // we also need $stateParams to be available for any $injector calls we make during the
       // dependency resolution process.
       var $stateParams = (paramsAreFiltered) ? params : filterByKeys(state.params.$$keys(), params);
@@ -3459,7 +3459,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
         }];
 
         promises.push($resolve.resolve(injectables, locals, dst.resolve, state).then(function (result) {
-          // References to the controller (only instantiated at link time)
+          // References to the com.appurate.realtor.controller (only instantiated at link time)
           if (isFunction(view.controllerProvider) || isArray(view.controllerProvider)) {
             var injectLocals = angular.extend({}, injectables, locals);
             result.$$controller = $injector.invoke(view.controllerProvider, null, injectLocals);
@@ -3511,7 +3511,7 @@ function $ViewProvider() {
   $get.$inject = ['$rootScope', '$templateFactory'];
   function $get(   $rootScope,   $templateFactory) {
     return {
-      // $view.load('full.viewName', { template: ..., controller: ..., resolve: ..., async: false, params: ... })
+      // $view.load('full.viewName', { template: ..., com.appurate.realtor.controller: ..., resolve: ..., async: false, params: ... })
       /**
        * @ngdoc function
        * @name ui.router.state.$view#load
@@ -3542,7 +3542,7 @@ function $ViewProvider() {
          * Fired once the view **begins loading**, *before* the DOM is rendered.
          *
          * @param {Object} event Event object.
-         * @param {Object} viewConfig The view config properties (template, controller, etc).
+         * @param {Object} viewConfig The view config properties (template, com.appurate.realtor.controller, etc).
          *
          * @example
          *
@@ -3570,7 +3570,7 @@ angular.module('ui.router.state').provider('$view', $ViewProvider);
  * @name ui.router.state.$uiViewScrollProvider
  *
  * @description
- * Provider that returns the {@link ui.router.state.$uiViewScroll} service function.
+ * Provider that returns the {@link ui.router.state.$uiViewScroll} com.appurate.realtor.service function.
  */
 function $ViewScrollProvider() {
 
@@ -3582,7 +3582,7 @@ function $ViewScrollProvider() {
    * @methodOf ui.router.state.$uiViewScrollProvider
    *
    * @description
-   * Reverts back to using the core [`$anchorScroll`](http://docs.angularjs.org/api/ng.$anchorScroll) service for
+   * Reverts back to using the core [`$anchorScroll`](http://docs.angularjs.org/api/ng.$anchorScroll) com.appurate.realtor.service for
    * scrolling based on the url anchor.
    */
   this.useAnchorScroll = function () {
@@ -3639,7 +3639,7 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  *
  * @param {string=} autoscroll It allows you to set the scroll behavior of the browser window
  * when a view is populated. By default, $anchorScroll is overridden by ui-router's custom scroll
- * service, {@link ui.router.state.$uiViewScroll}. This custom service let's you
+ * com.appurate.realtor.service, {@link ui.router.state.$uiViewScroll}. This custom com.appurate.realtor.service let's you
  * scroll ui-view elements into view when they are populated during a state activation.
  *
  * *Note: To revert back to old [`$anchorScroll`](http://docs.angularjs.org/api/ng.$anchorScroll)

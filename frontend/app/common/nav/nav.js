@@ -9,9 +9,10 @@ var menuItem = function (name, sref, selected, children) {
 
 }
 var myApp = angular.module('realtor')
-    .controller('NavController', ['$scope', '$state', 'UsersModel', function ($scope, $state, UsersModel) {
+    .controller('NavController', ['$scope', '$state', 'UsersModel', function ($scope, $state, usersModel) {
         this.showSubMenu = false;
-        this.users = UsersModel.getUsers();
+        this.$state = $state;
+        this.users = usersModel.getUsers();
         this.flipSubMenu = function () {
             console.log(this.showSubMenu);
             this.showSubMenu = !this.showSubMenu;
@@ -22,12 +23,12 @@ var myApp = angular.module('realtor')
                 new menuItem
                 ('User', 'admin.user.view', false, [
                         new menuItem('User 1', 'admin.user.view', '', 'false', []),
-                        new menuItem('User 2', 'admin.user.view', '', 'false', [])]
+                        new menuItem('Profile', 'admin.profile', '', 'false', [])]
                 ),
                 new menuItem
-                ('Group', 'admin.user.view', false, [
-                        new menuItem('User 1', 'admin.user.view', '', 'false', []),
-                        new menuItem('User 2', 'admin.user.view', '', 'false', [])]
+                ('Group', 'admin.profile', false, [
+                        //new menuItem('Profile', 'admin.profile', '', 'false', []),
+                        new menuItem('User 2', 'admin.group.view', '', 'false', [])]
                 )
             ]
         ;
